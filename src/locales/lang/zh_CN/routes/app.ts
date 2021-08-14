@@ -8,7 +8,7 @@ export default {
   system: {
     manager: '系统管理',
     account: '账套管理',
-    role: '角色',
+    role: '角色管理',
     permission: '用户权限',
     loginLog: '登录日志',
     functionLog: '操作日志',
