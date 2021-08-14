@@ -8,8 +8,15 @@
     v-show="getShow"
     @keypress.enter="handleLogin"
   >
-    <FormItem name="account" class="enter-x">
-      <Input size="large" v-model:value="formData.account" :placeholder="t('sys.login.userName')" />
+    <FormItem name="appkey" class="enter-x">
+      <Input size="large" v-model:value="formData.appkey" :placeholder="t('sys.login.appkey')" />
+    </FormItem>
+    <FormItem name="username" class="enter-x">
+      <Input
+        size="large"
+        v-model:value="formData.username"
+        :placeholder="t('sys.login.userName')"
+      />
     </FormItem>
     <FormItem name="password" class="enter-x">
       <InputPassword
@@ -130,8 +137,9 @@
       const rememberMe = ref(false);
 
       const formData = reactive({
-        account: 'vben',
-        password: '123456',
+        appkey: 'DSPD03_v4',
+        username: 'admin',
+        password: '!QAZxsw2#EDC4',
       });
 
       const { validForm } = useFormValid(formRef);
@@ -147,8 +155,9 @@
           loading.value = true;
           const userInfo = await userStore.login(
             toRaw({
+              appkey: data.appkey,
               password: data.password,
-              username: data.account,
+              username: data.username,
               mode: 'none', //不要默认的错误提示
             })
           );
